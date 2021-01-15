@@ -1,0 +1,24 @@
+div.Card {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  &_title {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin:0.5rem;
+  }
+  &_buttonGroup {
+    margin: 0.5rem 0 0 0.5rem;
+  }
+  &_info {
+    display: flex;
+    justify-content: flex-end;
+    > * {
+      margin: 0 0.5rem 0.5rem 0;
+    }
+  }
+}
+
+// div.Card_info > * {
+//  margin: 1rem;
+// }

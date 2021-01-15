@@ -4,15 +4,11 @@
 3. install storybook by `npx sb init` and able to run by `yarn storybook`
 building story:
 ```javascript
-export default {
-  title: "SparkGraph",
-  component: SparkGraph
-};
-
-const Template = (args) => <SparkGraph {...args}/>;
-
-export const Empty = Template.bind({});
-Empty.args = {desc:"Ali", hello:"Asghar"}; 
+import { storiesOf } from "@storybook/react";
+storiesOf("Dashboard Card Holder", module)
+  .addParameters({})
+  .add("Empty", () => <DashCard/>)
+  .add("With StockGraph inside", () => <DashCard><StockGraph width={1000} height={300}/></DashCard>) 
 ```
 4. make a github repo with same name then copy the ssh:
 
