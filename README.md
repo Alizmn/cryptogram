@@ -1,3 +1,91 @@
+# Project step by step
+1. start with `npx create-react-app` then removing the unnecessary files start by `yarn start`
+2. install sass by `yarn add sass --dev`
+3. install storybook by `npx sb init` and able to run by `yarn storybook`
+building story:
+```javascript
+export default {
+  title: "SparkGraph",
+  component: SparkGraph
+};
+
+const Template = (args) => <SparkGraph {...args}/>;
+
+export const Empty = Template.bind({});
+Empty.args = {desc:"Ali", hello:"Asghar"}; 
+```
+4. make a github repo with same name then copy the ssh:
+
+```sh
+git init
+git add .
+git commit -m "first commit"
+git remote add origin "copied ssh"
+git push -u origin master
+````
+
+5. Apply for free Nomic Api and read the document
+6. I had hard time finding appropriate graph library, but at the end I used visx, which seems great so far
+the codes are in Typescript so they are some external library to install.
+7. No I have to install fontawesome to do the ground work. Apparently, there is a react library for that. here are the steps:
+a: install dependencies:
+```sh
+npm i -S @fortawesome/fontawesome-svg-core @fortawesome/react-fontawesome @fortawesome/free-regular-svg-icons @fortawesome/free-solid-svg-icons @fortawesome/free-brands-svg-icons
+```
+b: creating icon library:
+Let’s create fontawesome.js in the src folder and then import that into index.js.(import "./fontawesome")
+fontawesome.js :
+```javascript
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faGoogle, faInfoCircle);
+```
+then whenever you want to use it import and use it like this:
+```javascript
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+<FontAwesomeIcon icon={["fas", "info-circle"]}/>
+```
+
+# NOMIC API
+## Connection example
+https://api.nomics.com/v1/markets?<b>key=your-api-key-goes-here</b>
+## API info
+### Currencies Ticker
+Price, volume, market cap, and rank for all currencies across 1 hour, 1 day, 7 day, 30 day, 365 day, and year to date intervals. Current prices are updated every 10 seconds.
+
+```javascript
+axios.get("https://api.nomics.com/v1/currencies/ticker?key=demo-26240835858194712a4f8cc0dc635c7a&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR&per-page=100&page=1")
+  .then(response => response.json())
+  .then(data => console.log(data))
+```
+### Currencies Metadata
+The currencies endpoint returns all the currencies and their metadata that Nomics supports.
+It includes logos, description and other general information.
+
+```javascript
+axios.get("https://api.nomics.com/v1/currencies?key=demo-26240835858194712a4f8cc0dc635c7a&ids=BTC,ETH,XRP&attributes=id,name,logo_url")
+  .then(response => response.json())
+  .then(data => console.log(data))
+```
+
+### Currencies Sparkline
+
+The currencies sparkline endpoint returns prices for all currencies within a customizable time interval suitable for sparkline charts.
+
+<b>Note</b> the timestamps and prices are built off of OHLCV candles using the close price. This means that the timestamp represents the start of the candle, and the price is the close price of that candle. This means the response's final timestamp and price value are always as current as possible, but also that the price is effectively "off" by one candle. This endpoint is designed to serve as a convenient way to render sparklines, if you need exactly aligned times and prices you can use the Aggregated OHLCV Candles endpoint.
+
+```javascript
+axios.get("https://api.nomics.com/v1/currencies/sparkline?key=demo-26240835858194712a4f8cc0dc635c7a&ids=BTC,ETH,XRP&start=2018-04-14T00%3A00%3A00Z&end=2018-05-14T00%3A00%3A00Z")
+  .then(response => response.json())
+  .then(data => console.log(data))
+```
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -6,7 +94,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,12 +102,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,7 +117,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
@@ -65,6 +153,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `yarn build` fails to minify
+### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
