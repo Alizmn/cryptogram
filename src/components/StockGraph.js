@@ -1,4 +1,3 @@
-
 import React, { useMemo, useCallback } from 'react';
 import { AreaClosed, Line, Bar } from '@visx/shape';
 import appleStock from '@visx/mock-data/lib/mocks/appleStock';
