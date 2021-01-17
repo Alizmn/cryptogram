@@ -110,6 +110,7 @@ const top100Films = [
   { title: '3 Idiots', year: 2009 },
   { title: 'Monty Python and the Holy Grail', year: 1975 },
 ];
+const options = top100Films.map(film => film.title);
 
 
 storiesOf("StockGraph", module)
@@ -132,4 +133,4 @@ storiesOf("Dashboard Card Holder", module)
 
   storiesOf("Choosing the Crypto", module)
   .addParameters({})
-  .add("Regular", () => <Cryptoselect options={top100Films} label={"Choose your Crypto Currency"} onChoose={action("option Chose")} defaultValue={"The Kid"}/>)
+  .add("Regular", () => <Cryptoselect options={options} title={"Choose Your CryptoCurrency"} preFill={"BitCoin"}/>)
