@@ -18,7 +18,7 @@ const renderTime = ({ remainingTime }) => {
 };
 
 export default function Timer(props) {
-  props.onComplete();
+  props.onComplete && props.onComplete();
   return (
     <div className="timer">
       <div className="timer-wrapper">
