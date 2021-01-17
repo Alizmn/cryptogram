@@ -1,0 +1,13 @@
+.priceTag {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  &_image {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem;
+  }
+  &_price {
+    margin: 0.5rem;
+  }
+}

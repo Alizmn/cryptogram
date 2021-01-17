@@ -6,6 +6,7 @@ import StockGraph from "../components/StockGraph";
 import Timer from "../components/Timer";
 import Navbar from "../components/Navbar";
 import Cryptoselect from "../components/Cryptoselect";
+import PriceTag from '../components/PriceTag';
 import "../fontawesome";
 
 const top100Films = [
@@ -134,3 +135,7 @@ storiesOf("Dashboard Card Holder", module)
   storiesOf("Choosing the Crypto", module)
   .addParameters({})
   .add("Regular", () => <Cryptoselect options={options} title={"Choose Your CryptoCurrency"} preFill={"BitCoin"}/>)
+
+  storiesOf("Price Tag", module)
+  .addParameters({})
+  .add("Regular", () => <PriceTag imageUrl={'https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/btc.svg'} cryptoName={'Bitcoin'} cryptoPrice={'8451.36516421'} fiat={'EUR'}/>)
