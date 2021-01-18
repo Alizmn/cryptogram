@@ -4,6 +4,7 @@ import Timer from './components/Timer';
 import PriceTag from './components/PriceTag';
 import DashCard from './components/DashCard';
 import StockGraph from './components/StockGraph';
+import PaperGraph from './components/PaperGraph';
 import './App.scss';
 
 const top100Films = [
@@ -116,13 +117,20 @@ export default function App() {
   return (
     <div className="App">
       <Navbar />
-      <div className='exchange'>
-        <Cryptoselect options={options} title={"Choose Your CryptoCurrency"} preFill={"BitCoin"}/>
-        <Cryptoselect options={options} title={"Choose Your Fiat Currency"} preFill={"USD"}/>
+      <div className='header'>
+        <div className='exchange'>
+          <div className='currency'>
+            <Cryptoselect options={options} title={"Choose Your CryptoCurrency"} preFill={"BitCoin"}/>
+            <Cryptoselect options={options} title={"Choose Your Fiat Currency"} preFill={"USD"}/>
+          </div>
+          <PriceTag imageUrl={'https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/btc.svg'} cryptoName={'Bitcoin'} cryptoPrice={'38451.36'} fiat={'CAD'}/>
+        </div>
+        <Timer className='Ali' play={true}/>
       </div>
-      <Timer play={true}/>
-      <PriceTag imageUrl={'https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/btc.svg'} cryptoName={'Bitcoin'} cryptoPrice={'8451.36516421'} fiat={'EUR'}/>
-      <DashCard button onWeek={() => console.log("Week-clicked")} onMonth={() => console.log("Month-clicked")} onYear={() => console.log("Year-clicked")} onMax={() => console.log("Max-clicked")} info={() => console.log("info-clicked")} ><StockGraph width={1000} height={300}/></DashCard>
+      <DashCard button onWeek={() => console.log("Week-clicked")} onMonth={() => console.log("Month-clicked")} onYear={() => console.log("Year-clicked")} onMax={() => console.log("Max-clicked")} info={() => console.log("info-clicked")} ><StockGraph width={0.95 * window.innerWidth} height={600}/></DashCard>
+      <PaperGraph width={0.9 * window.innerWidth} height={500}/>
+      <DashCard title={"Bitcoin Statistics"}></DashCard>
+      <DashCard title={"About Bitcoin"}></DashCard>
     </div>
   );
 };

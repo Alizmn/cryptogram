@@ -1,7 +1,6 @@
 import React from "react";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -10,10 +9,10 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 import './visualStyle/DashCard.scss';
 
-export default function CardDash(props) {
+export default function DashCard(props) {
   return (
     <div className='Card'>
-      <Card>
+      <Card raised>
       {props.title &&
         <div className={'Card_title'}>{props.title}</div>} 
       {props.button &&
@@ -28,9 +27,9 @@ export default function CardDash(props) {
         <CardContent>
           {props.children}
         </CardContent>
-        <div className='Card_info'>
+        {props.info && <div className='Card_info'>
           <FontAwesomeIcon onClick={props.info} icon={["fas", "info-circle"]} size="lg"/>
-        </div>
+        </div>}
       </Card>
     </div>
   );

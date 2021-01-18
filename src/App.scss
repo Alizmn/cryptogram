@@ -1,3 +1,20 @@
 .App {
   text-align: center;
+  > * {
+    margin: 1rem;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem;
+  .exchange {
+    display: flex;
+    align-items: center;
+    > * {
+      margin: 5rem;
+    }
+  }
 }
