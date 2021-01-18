@@ -3,8 +3,9 @@ import Cryptoselect from './components/Cryptoselect';
 import Timer from './components/Timer';
 import PriceTag from './components/PriceTag';
 import DashCard from './components/DashCard';
-import StockGraph from './components/StockGraph';
 import PaperGraph from './components/PaperGraph';
+import Paper from '@material-ui/core/Paper';
+import Divider from '@material-ui/core/Divider';
 import './App.scss';
 
 const top100Films = [
@@ -127,8 +128,12 @@ export default function App() {
         </div>
         <Timer className='Ali' play={true}/>
       </div>
-      <DashCard button onWeek={() => console.log("Week-clicked")} onMonth={() => console.log("Month-clicked")} onYear={() => console.log("Year-clicked")} onMax={() => console.log("Max-clicked")} info={() => console.log("info-clicked")} ><StockGraph width={0.95 * window.innerWidth} height={600}/></DashCard>
       <PaperGraph width={0.9 * window.innerWidth} height={500}/>
+      <Paper>
+        Bitcoin Statistics
+        <Divider/>
+        dkfhdskjfhdfhkj
+      </Paper>
       <DashCard title={"Bitcoin Statistics"}></DashCard>
       <DashCard title={"About Bitcoin"}></DashCard>
     </div>

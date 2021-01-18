@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import { AreaClosed, Line, Bar } from '@visx/shape';
 import appleStock from '@visx/mock-data/lib/mocks/appleStock';
 import { curveMonotoneX } from '@visx/curve';
@@ -32,20 +32,23 @@ const getDate = (d) => new Date(d.date);
 const getStockValue = (d) => d.close;
 const bisectDate = bisector(d => new Date(d.date)).left;
 
-export default withTooltip(
-({
-width,
-height,
-margin = { top: 0, right: 0, bottom: 0, left: 0 },
-showTooltip,
-hideTooltip,
-tooltipData,
-tooltipTop = 0,
-tooltipLeft = 0,
-}) => {
-if (width < 10) return null;
 
-// bounds
+export default withTooltip(
+  ({
+    width,
+    height,
+    margin = { top: 0, right: 0, bottom: 0, left: 0 },
+    showTooltip,
+    hideTooltip,
+    tooltipData,
+    tooltipTop = 0,
+    tooltipLeft = 0,
+  }) => {
+    width = 0.9 * window.innerWidth;
+    height = 0.3 * width;
+    if (width < 10) return null;
+    
+    // bounds
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 

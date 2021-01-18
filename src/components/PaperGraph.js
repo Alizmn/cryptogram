@@ -6,7 +6,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import StockGraph from '../components/StockGraph';
 import '../components/visualStyle/PaperGraph.scss'
 
-export default function SimplePaper({width, height, week, month, year, max, info}) {
+export default function SimplePaper({week, month, year, max, info}) {
   return (
     <div className='Paper'>
       <Paper elevation={3}>
@@ -18,7 +18,7 @@ export default function SimplePaper({width, height, week, month, year, max, info
             <Button onClick={max}>Max</Button>
           </ButtonGroup>
         </div>
-        <StockGraph width={width} height={height}/>
+        <StockGraph/>
         <div className='Card_info'>
           <FontAwesomeIcon onClick={info} icon={["fas", "info-circle"]} size="lg"/>
         </div>
