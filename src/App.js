@@ -2,10 +2,9 @@ import Navbar from './components/Navbar';
 import Cryptoselect from './components/Cryptoselect';
 import Timer from './components/Timer';
 import PriceTag from './components/PriceTag';
-import DashCard from './components/DashCard';
 import PaperGraph from './components/PaperGraph';
+import Statistics from './components/Statistics';
 import Paper from '@material-ui/core/Paper';
-import Divider from '@material-ui/core/Divider';
 import './App.scss';
 
 const top100Films = [
@@ -129,13 +128,10 @@ export default function App() {
         <Timer className='Ali' play={true}/>
       </div>
       <PaperGraph width={0.9 * window.innerWidth} height={500}/>
-      <Paper>
-        Bitcoin Statistics
-        <Divider/>
-        dkfhdskjfhdfhkj
-      </Paper>
-      <DashCard title={"Bitcoin Statistics"}></DashCard>
-      <DashCard title={"About Bitcoin"}></DashCard>
+      <Paper><Statistics/></Paper>
+      
+      {/* <DashCard title={"Bitcoin Statistics"}></DashCard> */}
+      {/* <DashCard title={"About Bitcoin"}></DashCard> */}
     </div>
   );
 };
