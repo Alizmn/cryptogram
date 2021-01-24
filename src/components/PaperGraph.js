@@ -1,27 +1,29 @@
-import React from 'react';
-import Paper from '@material-ui/core/Paper';
+import React from "react";
+import Paper from "@material-ui/core/Paper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import StockGraph from '../components/StockGraph';
-import '../components/visualStyle/PaperGraph.scss'
+import Button from "@material-ui/core/Button";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import StockGraph from "../components/StockGraph";
+import "../components/visualStyle/PaperGraph.scss";
 
-export default function SimplePaper({week, month, year, max, info}) {
+export default function SimplePaper({ week, month, year, max, info }) {
   return (
-    <div className='Paper'>
+    <div className="Paper">
       <Paper elevation={3}>
-      <div className='Card_buttonGroup'>
-          <ButtonGroup variant='contained' color='primary' size='small' aria-label='contained primary button group'>
+        <div className="Card_buttonGroup">
+          <ButtonGroup
+            variant="contained"
+            color="primary"
+            size="small"
+            aria-label="contained primary button group"
+          >
             <Button onClick={week}>Last Week</Button>
             <Button onClick={month}>Last Month</Button>
             <Button onClick={year}>Last Year</Button>
             <Button onClick={max}>Max</Button>
           </ButtonGroup>
         </div>
-        <StockGraph/>
-        <div className='Card_info'>
-          <FontAwesomeIcon onClick={info} icon={["fas", "info-circle"]} size="lg"/>
-        </div>
+        <StockGraph />
       </Paper>
     </div>
   );
