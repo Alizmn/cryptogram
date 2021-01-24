@@ -5,6 +5,7 @@ import PriceTag from './components/PriceTag';
 import PaperGraph from './components/PaperGraph';
 import Statistics from './components/Statistics';
 import Paper from '@material-ui/core/Paper';
+import Divider from '@material-ui/core/Divider';
 import './App.scss';
 
 const top100Films = [
@@ -129,7 +130,17 @@ export default function App() {
       </div>
       <PaperGraph width={0.9 * window.innerWidth} height={500}/>
       <Paper><Statistics/></Paper>
-      
+      <Paper>
+        <h1 className='info'>About Bitcoin</h1>
+        <Divider/>
+        <p className='infoDetail'>
+        Bitcoin (₿) (BTC) is a decentralized virtual digital currency that can be sent between users through the Bitcoin peer-to-peer network, without the need for intermediaries like banks or governments. It was the first example of a cryptocurrency, a growing asset class that shares some characteristics of traditional currencies, but has verification based on cryptography.
+
+        The term ‘Bitcoin’ can refer to the token (a snippet of code that represents ownership of a digital value) or it can refer to the technology (a distributed network that maintains the ledger of balances of the Bitcoin token).
+
+        The idea for Bitcoin and blockchain was first published in an online cryptography forum in November 2008, by an anonymous person (or group) called Satoshi Nakamoto. The white paper, entitled ‘Bitcoin: A Peer-to-Peer Electronic Cash System’ outlined an electronic payment system based on mathematical proof, and explained how the different parts of the Bitcoin protocol would operate and be kept secure. It further described how a new type of database called a blockchain would keep track of the history of all Bitcoin transactions, and be maintained by everyone in the network. 
+        </p>
+      </Paper>
       {/* <DashCard title={"Bitcoin Statistics"}></DashCard> */}
       {/* <DashCard title={"About Bitcoin"}></DashCard> */}
     </div>

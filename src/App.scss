@@ -18,3 +18,32 @@
     }
   }
 }
+
+h1 {
+  text-align: start;
+  font-family: 'Texturina', serif;
+  font-size: 3rem;
+  &.info {
+    margin: 1rem;
+    text-align: start;
+    font-family: 'Texturina', serif;
+    font-size: 3rem;
+  }
+}
+h2 {
+  font-family: 'VT323', monospace;
+  font-size: 3rem;
+}
+h3 {
+  font-family: 'Aldrich', sans-serif;
+  font-size: 2rem;
+}
+p {
+  text-align: start;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  &.infoDetail {
+    margin: 1rem;
+    margin-bottom: 5rem;
+  } 
+}
